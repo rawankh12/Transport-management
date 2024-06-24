@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'phone'
     ];
 
     /**
@@ -41,4 +43,69 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the user that owns the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function complaint()
+    {
+        return $this->hasOne(Complaint::class, 'user_id');
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function entity_private()
+    {
+        return $this->hasMany(Entity_Pravate::class, 'user_id');
+    }
+
+    /**
+     * Get the user associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function requirement()
+    {
+        return $this->hasOne(Requirements::class, 'user_id');
+    }
+
+    public function reservation()
+    {
+        return $this->hasOne(Reservation::class, 'user_id');
+    }
+
+    public function section()
+    {
+        return $this->hasOne(Section::class, 'admin_id');
+    }
+
+    public function ship_goods_request()
+    {
+        return $this->hasMany(Ship_Goods_Request::class, 'user_id');
+    }
+
+    public function transporting()
+    {
+        return $this->hasMany(Transporting::class, 'admin_id');
+    }
+
+    public function trip_request()
+    {
+        return $this->hasMany(Trip_Request::class, 'user_id');
+    }
 }
