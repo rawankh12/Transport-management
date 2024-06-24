@@ -94,6 +94,68 @@ body {
     transition: width 0.3s ease;
 } 
 */
+
+/* تنسيق الجدول */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    width: 300px;
+    height: 172px;
+    margin-right: 40px;
+    background: linear-gradient(to bottom right, #f0f8ff, #e6e6fa); /* خلفية مموجة هادئة */
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px #02568C
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    color: #02568C ;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.btn-add-supervisor {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    /* color: blue; */
+    border: 2px solid blue;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    z-index: 9999; /* تأكد من أن الزر فوق جميع العناصر الأخرى */
+    
+}
+
+.btn-add-supervisor:hover {
+    /* background-color: blue; */
+    /* color: white; */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-supervisor .bi {
+    font-size: 1.8em; /* لضبط حجم الأيقونة */
+}
+
+.supervisor-title {
+    color: #02568C; /* لون النص */
+}
 /* wrapper */
 .wrapper {
     display: flex;
@@ -110,7 +172,11 @@ body {
 }
 
 .main.expand {
+    width: calc(100% - 260px);
     margin-right: 260px; /* Adjust according to sidebar width when expanded */
+}
+.main .d-flex.justify-content-start {
+    margin-top: auto;
 }
 #sidebar {
     width: 70px;
@@ -227,6 +293,12 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+.sidebar-link.active {
+    background-color: #02568C;;
+    color: white !important;
+   margin-right: 10px;
+    margin-left: 10px; /* إضافة فراغ على اليمين */
+}
 
 .footer {
     position: fixed;
@@ -306,6 +378,10 @@ body.light-mode .profile-btn a {
 #sidebar.light-mode a.sidebar-link:hover {
     background-color: hwb(254 40% 28% / 0.075);
     border-right: 3px solid #3b7ddd; /* تغيير الحافة إلى اليمين */
+}
+#sidebar.dark-mode a.sidebar-link.active {
+    border-right: 3px solid hwb(203 71% 9%);
+    margin-right: 10px; /* إضافة فراغ على اليمين */
 }
 
 #sidebar.dark-mode a.sidebar-link:hover {

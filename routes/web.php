@@ -51,3 +51,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/overview/data', [App\Http\Controllers\AdminController::class, 'getOverviewData'])->name('admin.overview.data');
+
+Route::get('/supervisors', [App\Http\Controllers\SupervisorController::class, 'index'])->name('supervisors.index');
+Route::post('/supervisors', [App\Http\Controllers\SupervisorController::class, 'store'])->name('supervisors.store');

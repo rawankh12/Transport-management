@@ -5,9 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggle-btn');
+    // const btnprimary = document.getElementById('btn-primary');
     const header = document.querySelector('.header');
     const main = document.querySelector('.main');
     const footer = document.querySelector('.footer');
+    // const table = document.querySelector('.table');
+    
 
     // الانتقال إلى صفحة البروفايل
     profileBtn.addEventListener('click', function() {
@@ -72,5 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         header.classList.toggle('expand');
         main.classList.toggle('expand');
         footer.classList.toggle('expand');
-    });
+        // table.classList.toggle('expand'); 
+      });
 });
